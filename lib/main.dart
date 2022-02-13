@@ -22,9 +22,11 @@ class MyApp extends StatelessWidget {
           child: Text("This is my app"),
         ),
         backgroundColor: Colors.white,
-        floatingActionButton: FloatingActionButton(
+        floatingActionButton: FloatingActionButton.extended(
           onPressed: (){},
-          child:Icon(Icons.navigation),
+          label: Text('Send'),
+          icon: Icon(Icons.navigation),
+          backgroundColor: Colors.red,
           ),
       ),
     );
