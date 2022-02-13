@@ -24,8 +24,8 @@ class MyApp extends StatelessWidget {
         backgroundColor: Colors.white,
         floatingActionButton: FloatingActionButton.extended(
           onPressed: (){},
-          label: Text('Send'),
-          icon: Icon(Icons.navigation),
+          label: const Text('Send'),
+          icon: const Icon(Icons.navigation),
           backgroundColor: Colors.red,
           ),
       ),
