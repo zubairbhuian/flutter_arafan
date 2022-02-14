@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -12,22 +10,20 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+          // primaryColor:Colors.red,
+          primarySwatch: Colors.grey),
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Doctor's App"),
+          title: const Text("My App"),
         ),
-        body: const Center(
-          child: Text("This is my app"),
-        ),
-        backgroundColor: Colors.white,
-        floatingActionButton: FloatingActionButton.extended(
-          onPressed: (){},
-          label: const Text('Send'),
-          icon: const Icon(Icons.navigation),
-          backgroundColor: Colors.red,
+        body: const Center(child: Text("This is my app")),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          child: Icon(
+            Icons.accessibility,
+            color: Colors.white,
           ),
+        ),
       ),
     );
   }
