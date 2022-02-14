@@ -17,12 +17,13 @@ class MyApp extends StatelessWidget {
           title: const Text("My App"),
         ),
         body: const Center(child: Text("This is my app")),
-        floatingActionButton: FloatingActionButton(
+        floatingActionButton: FloatingActionButton.extended(
           onPressed: () {},
-          child: Icon(
-            Icons.accessibility,
+          label: Text("More"),
+          icon: Icon(
+            Icons.more,
             color: Colors.white,
-          ),
+            ),
         ),
       ),
     );
