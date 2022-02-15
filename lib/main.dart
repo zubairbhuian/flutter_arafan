@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -59,7 +61,30 @@ class MyApp extends StatelessWidget {
             ],
           ),
         ),
-        body: const Center(child: Text("This is my app")),
+        body: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(15),
+            child: Column(children: [
+              const Text("Here is some demo text"),
+              RaisedButton(
+                onPressed: () {},
+                child: const Text(
+                  "Click Me",
+                  style: TextStyle(color: Colors.white),
+                  
+                  ),
+                color: Colors.red,
+              ),          RaisedButton(
+                onPressed: () {},
+                child: Text("Click Me"),
+              ),
+                        RaisedButton(
+                onPressed: () {},
+                child: Text("Click Me"),
+              )
+            ]),
+          ),
+        ),
         floatingActionButton: FloatingActionButton.extended(
           onPressed: () {},
           label: const Text("More", style: TextStyle(color: Colors.white)),
