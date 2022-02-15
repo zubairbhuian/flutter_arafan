@@ -16,6 +16,10 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.orange),
       home: Scaffold(
         appBar: AppBar(
+          // leading: IconButton(icon:Icon(Icons.menu),
+          // tooltip: "hiiiiiiiiii",
+          // onPressed: () {},
+          // ),
           title: const Text(
             "My App",
             style: TextStyle(color: Colors.white),
@@ -76,7 +80,7 @@ class MyApp extends StatelessWidget {
                 color: Colors.red,
               ),          RaisedButton(
                 onPressed: () {},
-                child: Text("Click Me"),
+                child: const Text("Click Me"),
               ),
                         RaisedButton(
                 onPressed: () {},
