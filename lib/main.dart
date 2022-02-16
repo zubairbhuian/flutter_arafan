@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -24,11 +24,28 @@ class MyApp extends StatelessWidget {
             "My App",
             style: TextStyle(color: Colors.white),
           ),
+          actions: [
+            IconButton(
+                onPressed: () {
+                  
+                },
+                icon: const Icon(Icons.add_alert),
+                color: Colors.white),
+            IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.search),
+                color: Colors.white),
+            IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.navigate_next),
+                color: Colors.white),
+          ],
         ),
         drawer: Drawer(
+          backgroundColor: Colors.white,
           child: ListView(
             padding: EdgeInsets.zero,
-            children:[
+            children: [
               const DrawerHeader(
                 decoration: BoxDecoration(
                   color: Colors.orange,
@@ -42,26 +59,21 @@ class MyApp extends StatelessWidget {
                 ),
               ),
               ListTile(
-                leading: const Icon(Icons.message),
-                title: const Text("Message"),
-                onTap: (){}
-              ),
+                  leading: const Icon(Icons.message),
+                  title: const Text("Message"),
+                  onTap: () {}),
               ListTile(
-                leading: const Icon(Icons.person),
-                title: const Text("Profile"),
-                onTap: (){}
-
-              ),
+                  leading: const Icon(Icons.person),
+                  title: const Text("Profile"),
+                  onTap: () {}),
               ListTile(
-                leading: const Icon(Icons.settings),
-                title: const Text("Settings"),
-                onTap: (){}
-              ),
+                  leading: const Icon(Icons.settings),
+                  title: const Text("Settings"),
+                  onTap: () {}),
               ListTile(
-                leading: const Icon(Icons.logout),
-                title: const Text("Logout"),
-                onTap: (){}
-              )
+                  leading: const Icon(Icons.logout),
+                  title: const Text("Logout"),
+                  onTap: () {}),
             ],
           ),
         ),
@@ -70,22 +82,31 @@ class MyApp extends StatelessWidget {
             padding: const EdgeInsets.all(15),
             child: Column(children: [
               const Text("Here is some demo text"),
-              RaisedButton(
-                onPressed: () {},
+              ElevatedButton(
+                onPressed: () {
+                    ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: const Text('Awesome Snackbar!'),
+            action: SnackBarAction(
+              label: 'Action',
+              onPressed: () {
+                // Code to execute.
+              },
+            ),
+          ),
+        );
+
+                },
                 child: const Text(
                   "Click Me",
                   style: TextStyle(color: Colors.white),
-                  
-                  ),
-                color: Colors.red,
-              ),          RaisedButton(
-                onPressed: () {},
-                child: const Text("Click Me"),
+                ),
               ),
-                        RaisedButton(
-                onPressed: () {},
-                child: Text("Click Me"),
-              )
+              TextButton(onPressed: () {}, child: const Text("TextButton")),
+              IconButton(
+                  onPressed: () {},
+                  color: Colors.red,
+                  icon: const Icon(Icons.add))
             ]),
           ),
         ),
