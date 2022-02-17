@@ -39,7 +39,12 @@ class MyApp extends StatelessWidget {
                 color: Colors.white),
           ],
         ),
-        body: const MyStatelessWidget(),
+        body:Column(children: [
+           const MyStatelessWidget(),
+           const MyStatelessWidget(),
+           const MyStatelessWidget(),
+           const MyStatelessWidget(),
+        ]),
         floatingActionButton: FloatingActionButton(
             onPressed: () {},
             child: const Icon(
