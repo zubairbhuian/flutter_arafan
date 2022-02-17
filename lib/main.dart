@@ -1,7 +1,6 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
-
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
@@ -43,7 +42,7 @@ class MyApp extends StatelessWidget {
            const MyStatelessWidget(),
            const MyStatelessWidget(),
            const MyStatelessWidget(),
-           const MyStatelessWidget(),
+           const RangeSlider(),
         ]),
         floatingActionButton: FloatingActionButton(
             onPressed: () {},
@@ -93,6 +92,32 @@ class MyStatelessWidget extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+
+class RangeSlider extends StatefulWidget {
+  const RangeSlider({Key? key}) : super(key: key);
+
+  @override
+  _RangeSliderState createState() => _RangeSliderState();
+}
+
+class _RangeSliderState extends State<RangeSlider> {
+  double _currentSliderValue = 20;
+  @override
+  Widget build(BuildContext context) {
+    return Slider(
+      value: _currentSliderValue,
+      max: 100,
+      divisions: 5,
+      label: _currentSliderValue.round().toString(),
+      onChanged: (double value) {
+        setState(() {
+          _currentSliderValue = value;
+        });
+      },
     );
   }
 }
