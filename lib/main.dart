@@ -77,38 +77,8 @@ class MyApp extends StatelessWidget {
             ],
           ),
         ),
-        body: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(15),
-            child: Column(children: [
-              const Text("Here is some demo text"),
-              ElevatedButton(
-                onPressed: () {
-                    ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: const Text('Awesome Snackbar!'),
-            action: SnackBarAction(
-              label: 'Action',
-              onPressed: () {
-                // Code to execute.
-              },
-            ),
-          ),
-        );
-
-                },
-                child: const Text(
-                  "Click Me",
-                  style: TextStyle(color: Colors.white),
-                ),
-              ),
-              TextButton(onPressed: () {}, child: const Text("TextButton")),
-              IconButton(
-                  onPressed: () {},
-                  color: Colors.red,
-                  icon: const Icon(Icons.add))
-            ]),
-          ),
+        body: const Center(
+          child:MysateLessWidget(),
         ),
         floatingActionButton: FloatingActionButton.extended(
           onPressed: () {},
@@ -119,6 +89,31 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class MysateLessWidget extends StatelessWidget {
+  const MysateLessWidget({ Key? key }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      child: const Text("Click"),
+      onPressed: () {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: const Text('Awesome Snackbar!'),
+            action: SnackBarAction(
+              label: 'Action',
+              onPressed: () {
+                // Code to execute.
+              },
+            ),
+          ),
+        );
+      },
+      
     );
   }
 }
