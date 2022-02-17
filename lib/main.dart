@@ -26,9 +26,7 @@ class MyApp extends StatelessWidget {
           ),
           actions: [
             IconButton(
-                onPressed: () {
-                  
-                },
+                onPressed: () {},
                 icon: const Icon(Icons.add_alert),
                 color: Colors.white),
             IconButton(
@@ -41,14 +39,55 @@ class MyApp extends StatelessWidget {
                 color: Colors.white),
           ],
         ),
-        body: const Center(
-        ),
+        body: const MyStatelessWidget(),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          child: const Icon(Icons.send,color: Colors.white,)
-        ),
+            onPressed: () {},
+            child: const Icon(
+              Icons.send,
+              color: Colors.white,
+            )),
       ),
     );
   }
 }
 
+class MyStatelessWidget extends StatelessWidget {
+  const MyStatelessWidget({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: Card(
+          color: Colors.white70,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              const ListTile(
+                leading: Icon(Icons.album),
+                title: Text('The Enchanted Nightingale'),
+                subtitle: Text('Music by Julie Gable. Lyrics by Sidney Stein.'),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  TextButton(
+                    child: const Text('BUY TICKETS'),
+                    onPressed: () {/* ... */},
+                  ),
+                  const SizedBox(width: 8),
+                  TextButton(
+                    child: const Text('LISTEN'),
+                    onPressed: () {/* ... */},
+                  ),
+                  const SizedBox(width: 8),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
