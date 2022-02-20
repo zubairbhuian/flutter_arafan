@@ -62,11 +62,10 @@ class MyStatelessWidget extends StatelessWidget {
         ),
         body: Center(
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding:  EdgeInsets.all(8.0),
             child: Column(
               children: [
                 Card(
-                  
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
