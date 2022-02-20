@@ -1,56 +1,17 @@
-// ignore_for_file: deprecated_member_use
-
 import 'package:flutter/material.dart';
+
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
+  static const String _title = 'Flutter Code Sample';
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-          // primaryColor:Colors.red,
-          primarySwatch: Colors.orange),
-      home: Scaffold(
-        appBar: AppBar(
-          // leading: IconButton(icon:Icon(Icons.menu),
-          // tooltip: "hiiiiiiiiii",
-          // onPressed: () {},
-          // ),
-          title: const Text(
-            "My App",
-            style: TextStyle(color: Colors.white),
-          ),
-          actions: [
-            IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.add_alert),
-                color: Colors.white),
-            IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.search),
-                color: Colors.white),
-            IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.navigate_next),
-                color: Colors.white),
-          ],
-        ),
-        body:Column(children: [
-           const MyStatelessWidget(),
-           const MyStatelessWidget(),
-           const MyStatelessWidget(),
-           const RangeSlider(),
-        ]),
-        floatingActionButton: FloatingActionButton(
-            onPressed: () {},
-            child: const Icon(
-              Icons.send,
-              color: Colors.white,
-            )),
-      ),
+    return const MaterialApp(
+      title: _title,
+      home: MyStatelessWidget(),
     );
   }
 }
@@ -60,64 +21,51 @@ class MyStatelessWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.all(15.0),
-        child: Card(
-          color: Colors.white70,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              const ListTile(
-                leading: Icon(Icons.album),
-                title: Text('The Enchanted Nightingale'),
-                subtitle: Text('Music by Julie Gable. Lyrics by Sidney Stein.'),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  TextButton(
-                    child: const Text('BUY TICKETS'),
-                    onPressed: () {/* ... */},
-                  ),
-                  const SizedBox(width: 8),
-                  TextButton(
-                    child: const Text('LISTEN'),
-                    onPressed: () {/* ... */},
-                  ),
-                  const SizedBox(width: 8),
-                ],
-              ),
-            ],
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.add_a_photo),
+          onPressed: () {},
+        ),
+        title: const Text('AppBar Demo'),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.add_alert),
+            tooltip: 'Show Snackbar',
+            onPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('This is a snackbar')));
+            },
           ),
+          IconButton(
+            icon: const Icon(Icons.navigate_next),
+            tooltip: 'Go to the next page',
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute<void>(
+                builder: (BuildContext context) {
+                  return Scaffold(
+                    appBar: AppBar(
+                      title: const Text('Next page'),
+                    ),
+                    body: const Center(
+                      child: Text(
+                        'This is the next page',
+                        style: TextStyle(fontSize: 24),
+                      ),
+                    ),
+                  );
+                },
+              ));
+            },
+          ),
+        ],
+      ),
+      body: const Center(
+        child: Text(
+          'This is the home page',
+          style: TextStyle(fontSize: 24),
         ),
       ),
-    );
-  }
-}
-
-
-class RangeSlider extends StatefulWidget {
-  const RangeSlider({Key? key}) : super(key: key);
-
-  @override
-  _RangeSliderState createState() => _RangeSliderState();
-}
-
-class _RangeSliderState extends State<RangeSlider> {
-  double _currentSliderValue = 20;
-  @override
-  Widget build(BuildContext context) {
-    return Slider(
-      value: _currentSliderValue,
-      max: 100,
-      divisions: 5,
-      label: _currentSliderValue.round().toString(),
-      onChanged: (double value) {
-        setState(() {
-          _currentSliderValue = value;
-        });
-      },
     );
   }
 }
