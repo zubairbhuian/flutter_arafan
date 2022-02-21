@@ -5,8 +5,8 @@ class Page2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.green,
+    return const Scaffold(
+      body: Center(child: Text("This is Two")),
     );
   }
 }
