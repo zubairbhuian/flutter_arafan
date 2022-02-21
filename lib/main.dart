@@ -1,133 +1,23 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:matcher/matcher.dart';
 
-void main() => runApp(const MyApp());
+void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
 
-  static const String _title = 'Flutter Code Sample';
+class MyApp extends StatefulWidget {
+  const MyApp({ Key? key }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: _title,
-      home: MyStatelessWidget(),
-    );
-  }
+  _MyAppState createState() => _MyAppState();
 }
 
-class MyStatelessWidget extends StatelessWidget {
-  const MyStatelessWidget({Key? key}) : super(key: key);
-
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-            icon: Icon(Icons.add_a_photo),
-            onPressed: () {},
-          ),
-          title: const Text('AppBar Demo'),
-          actions: <Widget>[
-            IconButton(
-              icon: const Icon(Icons.add_alert),
-              tooltip: 'Show Snackbar',
-              onPressed: () {
-                ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('This is a snackbar')));
-              },
-            ),
-            IconButton(
-              icon: const Icon(Icons.navigate_next),
-              tooltip: 'Go to the next page',
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute<void>(
-                  builder: (BuildContext context) {
-                    return Scaffold(
-                      appBar: AppBar(
-                        title: const Text('Next page'),
-                      ),
-                      body: const Center(
-                        child: Text(
-                          'This is the next page',
-                          style: TextStyle(fontSize: 24),
-                        ),
-                      ),
-                    );
-                  },
-                ));
-              },
-            ),
-          ],
-        ),
-        body: Center(
-          child: Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Column(
-              children: [
-                Card(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      color: Colors.red,
-                      child: const Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Text(
-                          "Here's some demo text",
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                Card(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      color: Colors.red,
-                      child: const Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Text(
-                          "Here's some demo text",
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                Card(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      color: Colors.red,
-                      child: const Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Text(
-                          "Here's some demo text",
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                Card(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      color: Colors.red,
-                      child: const Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Text(
-                          "Here's some demo text",
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ),
-                    ),
-                  ),
-                )
-              ],
-            ),
-          ),
-        ));
+    return MaterialApp(
+      home: Scaffold(appBar: AppBar(title: Text('Hi'),)),
+      
+    );
   }
 }
