@@ -1,6 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:matcher/matcher.dart';
+import 'package:flutter_test_one/pages/page1.dart';
+import 'package:flutter_test_one/pages/page2.dart';
+import 'package:flutter_test_one/pages/page3.dart';
 
 void main() => runApp(MyApp());
 
@@ -12,21 +13,23 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  PageController _controller = PageController(
+  final PageController _controller = PageController(
     initialPage: 0,
   );
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
+        appBar: AppBar(title: const Text("My App")),
           body: PageView(
-            controller:_controller ,
-            children: [
-              Page1(),
-              Page2(),
-              Page3(),
-            ],
-
+            scrollDirection: Axis.vertical,
+        controller: _controller,
+        children:const [
+          Page1(),
+          Page2(),
+          Page3(),
+        ],
       )),
     );
   }
