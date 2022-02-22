@@ -9,9 +9,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: _title,
-      home: MyStatelessWidget(),
+      home: Scaffold(
+        appBar: AppBar(title: const Text(_title)),
+        body: const MyStatelessWidget(),
+      ),
     );
   }
 }
@@ -21,45 +24,17 @@ class MyStatelessWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Drawer Demo'),
-      ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: const <Widget>[
-            DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.blue,
-              ),
-              child: Text(
-                'Drawer Header',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                ),
-              ),
-            ),
-            ListTile(
-              leading: Icon(Icons.message),
-              title: Text('Messages'),
-            ),
-            ListTile(
-              leading: Icon(Icons.account_circle),
-              title: Text('Profile'),
-            ),
-            ListTile(
-              leading: Icon(Icons.settings),
-              title: Text('Settings'),
-            ),
-          ],
-        ),
-      ),
-      body: const Center(
-        child: Text(
-          'This is the home page',
-          style: TextStyle(fontSize: 24),
+    return Container(
+      color: Colors.blue,
+      alignment: Alignment.center,
+      width: 100.0,
+      height: 100.0,
+      child: AspectRatio(
+        aspectRatio: 2.0,
+        child: Container(
+          width: 100.0,
+          height: 50.0,
+          color: Colors.green,
         ),
       ),
     );
