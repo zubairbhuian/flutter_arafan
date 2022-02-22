@@ -1,70 +1,67 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_test_one/pages/page1.dart';
-import 'package:flutter_test_one/pages/page2.dart';
-import 'package:flutter_test_one/pages/page3.dart';
-import 'package:flutter_test_one/pages/page4.dart';
 
-void main() => runApp(MyApp());
-
-const _appName = "My App";
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
+  static const String _title = 'Flutter Code Sample';
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.purple),
-      home: const HomePage(),
+    return const MaterialApp(
+      title: _title,
+      home: MyStatelessWidget(),
     );
   }
 }
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
-
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  var _currentIndex = 0;
-  final pages = [Page1(), Page2(), Page3(), Page4()];
+class MyStatelessWidget extends StatelessWidget {
+  const MyStatelessWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(_appName),
-        flexibleSpace: Container(
-          decoration: const BoxDecoration(
-              gradient: LinearGradient(colors: [
-            Color.fromARGB(255, 64, 0, 80),
-            Color.fromARGB(255, 3, 76, 145)
-          ], begin: Alignment.bottomCenter, end: Alignment.centerLeft)),
+        title: const Text('AppBar Demo'),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.add_alert),
+            tooltip: 'Show Snackbar',
+            onPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('This is a snackbar')));
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.navigate_next),
+            tooltip: 'Go to the next page',
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute<void>(
+                builder: (BuildContext context) {
+                  return Scaffold(
+                    appBar: AppBar(
+                      title: const Text('Next page'),
+                    ),
+                    body: const Center(
+                      child: Text(
+                        'This is the next page',
+                        style: TextStyle(fontSize: 24),
+                      ),
+                    ),
+                  );
+                },
+              ));
+            },
+          ),
+        ],
+      ),
+      body: const Center(
+        child: Text(
+          'This is the home page',
+          style: TextStyle(fontSize: 24),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
-        selectedFontSize: 12,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-              backgroundColor: Colors.purple,
-              icon: Icon(Icons.message),
-              label: 'Message'),
-          BottomNavigationBarItem(icon: Icon(Icons.call), label: 'Call'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.pan_tool), label: 'Pan Tool'),
-          BottomNavigationBarItem(icon: Icon(Icons.radio), label: 'Radio'),
-        ],
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
-      ),
-      body: pages[_currentIndex],
     );
   }
 }
