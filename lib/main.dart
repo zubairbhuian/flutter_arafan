@@ -39,14 +39,10 @@ class _HomePageState extends State<HomePage> {
         title: const Text(_appName),
         flexibleSpace: Container(
           decoration: const BoxDecoration(
-              gradient: LinearGradient(
-            colors: [
-            Color.fromARGB(255, 66, 142, 230),
+              gradient: LinearGradient(colors: [
+            Color.fromARGB(255, 64, 0, 80),
             Color.fromARGB(255, 3, 76, 145)
-          ],
-          begin: Alignment.centerLeft,
-          end: Alignment.bottomLeft
-          )),
+          ], begin: Alignment.bottomCenter, end: Alignment.centerLeft)),
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
