@@ -37,6 +37,17 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(_appName),
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+              gradient: LinearGradient(
+            colors: [
+            Color.fromARGB(255, 66, 142, 230),
+            Color.fromARGB(255, 3, 76, 145)
+          ],
+          begin: Alignment.centerLeft,
+          end: Alignment.bottomLeft
+          )),
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
