@@ -8,6 +8,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: HomePage(),
     );
   }
@@ -22,13 +23,32 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int value = 0;
+  increment() {
+    setState(() {
+      value++;
+    });
+  }
+
+  decrement() {
+    setState(() {
+      value--;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Column(children: [
-          Text(value.toString(),style: TextStyle(fontSize: 50),)
-        ]),
+        body: Center(
+          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+            Text(
+              value.toString(),
+              style: TextStyle(fontSize: 50),
+            ),
+            ElevatedButton(onPressed: () => increment(), child: Text("+")),
+            ElevatedButton(onPressed: () => decrement(), child: Text("-"))
+          ]),
+        ),
       ),
     );
   }
