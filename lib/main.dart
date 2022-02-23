@@ -2,11 +2,9 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:flutter_test_one/data.dart';
 import 'package:provider/provider.dart';
 
-void main() => runApp(
-    ChangeNotifierProvider(builder: (context) => Data(), child: MyApp()));
+void main() => runApp( MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -31,7 +29,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    final providerdata = Provider.of<Data>(context);
+    final providerdata = Provider.of(context);
     return SafeArea(
       child: Scaffold(
         body: Center(
