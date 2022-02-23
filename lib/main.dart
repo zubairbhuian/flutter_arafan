@@ -9,6 +9,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(primarySwatch: Colors.red),
       home: HomePage(),
     );
   }
@@ -22,16 +23,16 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int value = 0;
+  var _value = 0;
   increment() {
     setState(() {
-      value++;
+      _value++;
     });
   }
 
   decrement() {
     setState(() {
-      value--;
+      _value--;
     });
   }
 
@@ -42,11 +43,14 @@ class _HomePageState extends State<HomePage> {
         body: Center(
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
             Text(
-              value.toString(),
-              style: TextStyle(fontSize: 50),
+              _value.toString(),
+              style: TextStyle(
+                fontSize: 40,
+              ),
             ),
             ElevatedButton(onPressed: () => increment(), child: Text("+")),
-            ElevatedButton(onPressed: () => decrement(), child: Text("-"))
+            ElevatedButton(onPressed: () => decrement(), child: Text("-")),
+            Text("data")
           ]),
         ),
       ),
