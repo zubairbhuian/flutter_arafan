@@ -1,6 +1,12 @@
-import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+
+
+import 'package:flutter/material.dart';
+import 'package:flutter_test_one/data.dart';
+import 'package:provider/provider.dart';
+
+void main() => runApp(
+    ChangeNotifierProvider(builder: (context) => Data(), child: MyApp()));
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -23,35 +29,19 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _value = 0;
-  increment() {
-    setState(() {
-      _value++;
-    });
-  }
-
-  decrement() {
-    setState(() {
-      _value--;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
+    final providerdata = Provider.of<Data>(context);
     return SafeArea(
       child: Scaffold(
         body: Center(
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-            Text(
-              _value.toString(),
-              style: const TextStyle(
-                fontSize: 40,
-              ),
-            ),
+            Text(providerdata.value.toString()),
             ElevatedButton(
-                onPressed: () => increment(), child: const Text("+")),
-            ElevatedButton(
-                onPressed: () => decrement(), child: const Text("-")),
+                onPressed: () {
+                  providerdata.incriment();
+                },
+                child: const Text("+")),
           ]),
         ),
       ),
