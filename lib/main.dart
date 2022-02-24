@@ -25,6 +25,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: _value == false ? Colors.purple : Colors.green,
       appBar: AppBar(
         title: const Text("MyShop"),
       ),
