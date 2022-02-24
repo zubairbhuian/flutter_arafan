@@ -21,14 +21,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  var _value = 0;
-
-  incriment() {
-    setState(() {
-      _value++;
-    });
-  }
-
+  bool _value = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,21 +29,14 @@ class _HomePageState extends State<HomePage> {
         title: const Text("MyShop"),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              _value.toString(),
-              style: const TextStyle(fontSize: 32),
-            ),
-            ElevatedButton(
-                onPressed: () {
-                  incriment();
-                },
-                child: const Text("+"))
-          ],
-        ),
-      ),
+          child: Switch(
+        value: _value,
+        onChanged: (val) {
+          setState(() {
+            _value = val;
+          });
+        },
+      )),
     );
   }
 }
