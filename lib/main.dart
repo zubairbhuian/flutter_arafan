@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,6 +23,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  XFile? _image;
+  Future CameraImage() async {
+    var image = await ImagePicker().pickImage(source: ImageSource.camera);
+    setState(() {
+      _image = image;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,12 +41,14 @@ class _HomePageState extends State<HomePage> {
           width: double.infinity,
           color: Colors.blue,
         ),
-        Divider(),
+        const Divider(),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             FloatingActionButton(
-              onPressed: () {},
+              onPressed: () {
+                CameraImage();
+              },
               child: const Icon(Icons.camera),
             ),
             const SizedBox(

@@ -1,16 +1,13 @@
 # Image Picker In Flutter
 
 ## Learn bout
-- switch
-- conditional background change
+- Image Picke
 - setstate function
 - stateful widget
+- gird
+- colum
 
 
-## Note
-It has two mandatory  attribute
-- value => boot
-- onchange => function
 
 
 ![](imgs/Screenshot_10.png)
