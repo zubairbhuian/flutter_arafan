@@ -9,8 +9,8 @@
 
 #Note
 It has two mandatory  attribute
-- vatue => boot
-- onchange => faction
+- value => boot
+- onchange => function
 
 
 ![](imgs/Screenshot_10.png)
