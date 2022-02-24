@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -9,7 +9,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: HomePage());
+    return const MaterialApp(
+        debugShowCheckedModeBanner: false, home: HomePage());
   }
 }
 
@@ -21,23 +22,34 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  bool _value = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: _value == false ? Colors.purple : Colors.green,
-      appBar: AppBar(
-        title: const Text("MyShop"),
-      ),
-      body: Center(
-          child: Switch(
-        value: _value,
-        onChanged: (val) {
-          setState(() {
-            _value = val;
-          });
-        },
-      )),
-    );
+        body: Column(
+      children: [
+        Container(
+          height: 500,
+          width: double.infinity,
+          color: Colors.blue,
+        ),
+        Divider(),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            FloatingActionButton(
+              onPressed: () {},
+              child: const Icon(Icons.camera),
+            ),
+            const SizedBox(
+              width: 20,
+            ),
+            FloatingActionButton(
+              onPressed: () {},
+              child: const Icon(Icons.photo_library),
+            ),
+          ],
+        )
+      ],
+    ));
   }
 }
