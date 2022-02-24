@@ -1,13 +1,13 @@
-## Switch In Flutter
+# Switch In Flutter
 
-# Learn bout
+## Learn bout
 - switch
 - conditional background change
 - setstate function
 - stateful widget
 
 
-# Note
+## Note
 It has two mandatory  attribute
 - value => boot
 - onchange => function
