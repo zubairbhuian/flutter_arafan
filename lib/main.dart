@@ -1,3 +1,4 @@
+// import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -40,6 +41,7 @@ class _HomePageState extends State<HomePage> {
           height: 500,
           width: double.infinity,
           color: Colors.blue,
+          child:Center(child:_image==null?Text("no image"):Text('data'))
         ),
         const Divider(),
         Row(
