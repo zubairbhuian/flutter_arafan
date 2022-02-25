@@ -1,5 +1,7 @@
-// import 'dart:io';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 
 void main() {
@@ -24,12 +26,16 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  XFile? _image;
-  Future CameraImage() async {
-    var image = await ImagePicker().pickImage(source: ImageSource.camera);
-    setState(() {
-      _image = image;
-    });
+  File? image;
+  Future pickImage(ImageSource source) async {
+    try {
+      final image = await ImagePicker().pickImage(source: source);
+      if (image == null) return;
+      final imageTemporary = File(image.path);
+      setState(() => this.image = imageTemporary);
+    } on PlatformException catch (e) {
+      print('Failed to pick image:$e');
+    }
   }
 
   @override
@@ -41,7 +47,17 @@ class _HomePageState extends State<HomePage> {
           height: 500,
           width: double.infinity,
           color: Colors.blue,
-          child:Center(child:_image==null?Text("no image"):Text('data'))
+          child: image == null
+              ? Icon(Icons.person)
+              : Image.file(
+                  image!,
+                  width: 160,
+                  height: 160,
+                  fit: BoxFit.cover,
+                ),
+          // child: Column(children: [
+          //   image == null ? Icon(Icons.person) : Image.file(image!)
+          // ]),
         ),
         const Divider(),
         Row(
@@ -49,7 +65,7 @@ class _HomePageState extends State<HomePage> {
           children: [
             FloatingActionButton(
               onPressed: () {
-                CameraImage();
+                pickImage(ImageSource.camera);
               },
               child: const Icon(Icons.camera),
             ),
@@ -57,7 +73,9 @@ class _HomePageState extends State<HomePage> {
               width: 20,
             ),
             FloatingActionButton(
-              onPressed: () {},
+              onPressed: () {
+                pickImage(ImageSource.gallery);
+              },
               child: const Icon(Icons.photo_library),
             ),
           ],
