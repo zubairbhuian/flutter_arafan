@@ -48,7 +48,12 @@ class _HomePageState extends State<HomePage> {
           width: double.infinity,
           color: Colors.blue,
           child: image == null
-              ? Icon(Icons.person)
+              ? const Center(
+                  child: Text(
+                    "Add your image",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                )
               : Image.file(
                   image!,
                   width: 160,
