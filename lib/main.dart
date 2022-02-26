@@ -28,50 +28,19 @@ class _HomePageState extends State<HomePage> {
         body: Center(
       child: ElevatedButton(
         onPressed: () {
-          showModalBottomSheet(
+          showDialog(
               context: context,
               builder: (context) {
-                return SizedBox(
-                  height: 216,
-                  // color: Colors.yellow,
-                  child: Column(children: const [
-                    ListTile(
-                      title: Text("Dr. Tarek"),
-                      subtitle: Text("Dentist"),
-                      trailing: Icon(Icons.edit),
-                      leading: CircleAvatar(
-                        backgroundColor: Colors.grey,
-                        child: Icon(
-                          Icons.person,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                    ListTile(
-                      title: Text("Aburayhan"),
-                      subtitle: Text("Backend Developer"),
-                      trailing: Icon(Icons.edit),
-                      leading: CircleAvatar(
-                        backgroundColor: Colors.grey,
-                        child: Icon(
-                          Icons.person,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                    ListTile(
-                      title: Text("Moyaj Hasan"),
-                      subtitle: Text("Fontend Developer"),
-                      trailing: Icon(Icons.edit),
-                      leading: CircleAvatar(
-                        backgroundColor: Colors.grey,
-                        child: Icon(
-                          Icons.person,
-                          color: Colors.white,
-                        ),
-                      ),
-                    )
-                  ]),
+                return AlertDialog(
+                  title: const Text("Alert"),
+                  content: const Text("Here's some demo text in alert dialog"),
+                  actions: [
+                    ElevatedButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: const Text("Ok")),
+                  ],
                 );
               });
         },

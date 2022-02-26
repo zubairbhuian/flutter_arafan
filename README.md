@@ -1,6 +1,13 @@
-# modalBottomSheet In Flutter
+# Alert Dialog In Flutter
 
 ## Learn bout
-- modalBottomSheet
+- alertdialog
+- Back to main page {Navigator.pop(context)}
 
-![](imgs/Screenshot_2.png)
+AlertDialog proverty:
+- title
+- content (description)
+- actions (A group of widgets)
+
+
+![](imgs/Screenshot_1.png)
