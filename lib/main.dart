@@ -27,8 +27,55 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
         body: Center(
       child: ElevatedButton(
-        onPressed: () {},
-        child: Text("Click Me"),
+        onPressed: () {
+          showModalBottomSheet(
+              context: context,
+              builder: (context) {
+                return SizedBox(
+                  height: 216,
+                  // color: Colors.yellow,
+                  child: Column(children: const [
+                    ListTile(
+                      title: Text("Dr. Tarek"),
+                      subtitle: Text("Dentist"),
+                      trailing: Icon(Icons.edit),
+                      leading: CircleAvatar(
+                        backgroundColor: Colors.grey,
+                        child: Icon(
+                          Icons.person,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    ListTile(
+                      title: Text("Aburayhan"),
+                      subtitle: Text("Backend Developer"),
+                      trailing: Icon(Icons.edit),
+                      leading: CircleAvatar(
+                        backgroundColor: Colors.grey,
+                        child: Icon(
+                          Icons.person,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    ListTile(
+                      title: Text("Moyaj Hasan"),
+                      subtitle: Text("Fontend Developer"),
+                      trailing: Icon(Icons.edit),
+                      leading: CircleAvatar(
+                        backgroundColor: Colors.grey,
+                        child: Icon(
+                          Icons.person,
+                          color: Colors.white,
+                        ),
+                      ),
+                    )
+                  ]),
+                );
+              });
+        },
+        child: const Text("Click Me"),
       ),
     ));
   }
