@@ -29,7 +29,8 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   flutter:
-    sdk: flutter
+    sdk: flutter 
+  curved_navigation_bar: ^1.0.3
 
 
 

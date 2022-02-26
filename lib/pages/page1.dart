@@ -6,7 +6,8 @@ class Page1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Center(child: Text("This is Message Page")),
+      backgroundColor: Colors.blue,
+      body: Center(child: Text("This is Home Page"),),
     );
   }
 }

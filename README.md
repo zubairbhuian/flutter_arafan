@@ -1,13 +1,10 @@
-# Alert Dialog In Flutter
+# Curved navigation bar In Flutter
 
 ## Learn bout
-- alertdialog
-- Back to main page {Navigator.pop(context)}
+- curvedNavigationBar
 
-AlertDialog proverty:
-- title
-- content (description)
-- actions (A group of widgets)
 
+## Dependencies:
+- curved_navigation_bar: ^1.0.3
 
 ![](imgs/Screenshot_1.png)
