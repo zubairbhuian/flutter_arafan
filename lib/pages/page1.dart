@@ -24,9 +24,8 @@ class _Page1State extends State<Page1> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    this.getData();
+    getData();
   }
 
   @override
