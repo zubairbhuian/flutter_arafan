@@ -58,7 +58,5 @@ ListView.builder(
 > - Text(**data**[index]["title"]) ,All data contain *data* variable
 
 
-## Dependencies:
-- curved_navigation_bar: ^1.0.3
-
+## ScreenShort
 ![](imgs/Screenshot_1.png)
