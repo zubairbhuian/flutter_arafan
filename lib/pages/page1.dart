@@ -31,12 +31,23 @@ class _Page1State extends State<Page1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blue,
       body: ListView.builder(
         itemCount: data == null ? 0 : data.length,
         itemBuilder: (contex, index) {
           return ListTile(
-            title: Text(data[index]["title"]),
-            subtitle: Text(data[index]["body"]),
+            title: Text(
+              data[index]["title"],
+              style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 22,
+                  fontWeight: FontWeight.w500),
+            ),
+            subtitle: Text(data[index]["body"],
+                style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400)),
           );
         },
       ),

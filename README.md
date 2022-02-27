@@ -9,7 +9,6 @@
 ## Copy the code
 ```dart
 
-
   var data = [];
   Future getData() async {
     var response =
@@ -27,17 +26,36 @@
     getData();
   }
 
-
 ```
 
 > - You have got all the data *"data"* in variable
 > - And you can see that in terminal
 
+> ## Why we are useing *initState()* Method
+> For *initState()* Method, *"getData()"* function call when the app has started
+
+## showing the data in your app,copy the code
+```dart
+
+ListView.builder(
+        itemCount: data == null ? 0 : data.length,
+        itemBuilder: (contex, index) {
+          return ListTile(
+            title: Text(data[index]["title"]),
+            subtitle: Text(data[index]["body"]),
+          );
+        },
+    ),
+
+```
 
 
-
-
-
+>## Important note
+> - Use async function
+> - *http.get()* can't receive any String so, pass in *Uri.parse()* method
+> - Use *await* because it's a async function
+> - Use *initState()* method so that call the function when app is running
+> - Text(**data**[index]["title"]) ,All data contain *data* variable
 
 
 ## Dependencies:
