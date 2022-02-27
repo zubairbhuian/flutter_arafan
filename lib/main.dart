@@ -1,10 +1,11 @@
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test_one/pages/page1.dart';
 import 'package:flutter_test_one/pages/page2.dart';
 import 'package:flutter_test_one/pages/page3.dart';
 import 'package:flutter_test_one/pages/page4.dart';
 import 'package:flutter_test_one/pages/page5.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 void main() {
   runApp(const MyApp());
