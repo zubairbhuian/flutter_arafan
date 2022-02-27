@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
@@ -31,12 +32,24 @@ class _MyAppState extends State<MyApp> {
   }
 
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    fetchPosts();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(body: ListView(
-        // itemCount: _jesonData.length,
-        // itemBuilder: itemBuilder,
-      ),),
+      home: Scaffold(
+        body: ListView.builder(
+          itemCount: _jesonData.length,
+          itemBuilder: (context, index) {
+            final post = _jesonData[index];
+            return Text("Title: ${post["title"]}\n Body:${post["body"]}\n\n");
+          },
+        ),
+      ),
     );
   }
 }
