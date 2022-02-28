@@ -1,4 +1,4 @@
-# Custom Dialog in flutter
+# http in flutter
 
 ## How to use
 > Make a Separate widget otherwise *contex* not found
@@ -15,4 +15,4 @@
 
 
 ## ScreenShort
-![](imgs/Screenshot_10.png)
+![](imgs/Screenshot_1.png)

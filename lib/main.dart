@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(primarySwatch: Colors.purple),
         home: Scaffold(
-          appBar: AppBar(title: Text(appName)),
+          appBar: AppBar(title: Text("My App")),
           body: MyBody(),
         ));
   }
@@ -28,14 +28,12 @@ class MyBody extends StatefulWidget {
 }
 
 class _MyBodyState extends State<MyBody> {
+  final url = "https://jsonplaceholder.typicode.com/photos";
   var data = [];
-  var url = "https://jsonplaceholder.typicode.com/posts";
   Future myData() async {
-    var jsonData =
-        await http.get(Uri.parse("url"));
-
+    var response = await http.get(Uri.parse(url));
+    var deCode = jsonDecode(response.body);
     setState(() {
-      var deCode = jsonDecode(jsonData.body);
       data = deCode;
       print(data);
     });
@@ -43,18 +41,26 @@ class _MyBodyState extends State<MyBody> {
 
   @override
   void initState() {
+    // TODO: implement initState
     super.initState();
     myData();
   }
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: const [
-        ListTile(
-          title: Text("dsssf"),
-        ),
-      ],
+    return ListView.builder(
+      itemCount: data.length,
+      itemBuilder: (contex, index) {
+        return ListTile(
+          title: Text(data[index]["title"]),
+        );
+      },
+
+      // body: Center(
+      //     child: ElevatedButton(
+      //   onPressed: () {},
+      //   child: Text("Click Me"),
+      // )),
     );
   }
 }
