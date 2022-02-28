@@ -36,15 +36,27 @@ class _MyPopupState extends State<MyPopup> {
               ) {
                 return Dialog(
                   child: Container(
-                    height: 100,
-                    width: 100,
-                    color: Colors.red,
+                    height: 250,
+                    color: Colors.white,
                     child: Padding(
                       padding: const EdgeInsets.all(15.0),
-                      child: Column(children: [
-                        Text("Hi Bhuian"),
-                        Text("Here is some demo text")
-                      ]),
+                      child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: const [
+                            Text(
+                              "Hi Bhuian",
+                              style: TextStyle(
+                                  fontSize: 24, fontWeight: FontWeight.bold),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Text(
+                              "Here is some demo text Here is some demo text Here is some demo text Here is some demo text Here is some demo text",
+                              style: TextStyle(
+                                  fontSize: 18, fontWeight: FontWeight.w400),
+                            )
+                          ]),
                     ),
                   ),
                 );
