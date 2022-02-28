@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 void main() => runApp(MyApp());
 
@@ -25,175 +28,29 @@ class MyBody extends StatefulWidget {
 }
 
 class _MyBodyState extends State<MyBody> {
+  var data = [];
+  var url = "https://jsonplaceholder.typicode.com/posts";
+  Future myData() async {
+    var jsonData =
+        await http.get(Uri.parse("url"));
+
+    setState(() {
+      var deCode = jsonDecode(jsonData.body);
+      data = deCode;
+      print(data);
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    myData();
+  }
+
   @override
   Widget build(BuildContext context) {
     return ListView(
       children: const [
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
-        ListTile(
-          title: Text("dsssf"),
-        ),
         ListTile(
           title: Text("dsssf"),
         ),
