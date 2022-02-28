@@ -26,9 +26,7 @@ class MyApp extends StatelessWidget {
           ),
           actions: [
             IconButton(
-                onPressed: () {
-                  
-                },
+                onPressed: () {},
                 icon: const Icon(Icons.add_alert),
                 color: Colors.white),
             IconButton(
@@ -78,10 +76,12 @@ class MyApp extends StatelessWidget {
           ),
         ),
         body: const Center(
-          child:MysateLessWidget(),
+          child: MysateLessWidget(),
         ),
         floatingActionButton: FloatingActionButton.extended(
-          onPressed: () {},
+          onPressed: () {
+            print("object");
+          },
           label: const Text("More", style: TextStyle(color: Colors.white)),
           icon: const Icon(
             Icons.more,
@@ -94,12 +94,15 @@ class MyApp extends StatelessWidget {
 }
 
 class MysateLessWidget extends StatelessWidget {
-  const MysateLessWidget({ Key? key }) : super(key: key);
+  const MysateLessWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      child: const Text("Click",style: TextStyle(color: Colors.white,)),
+      child: const Text("Click",
+          style: TextStyle(
+            color: Colors.white,
+          )),
       onPressed: () {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -113,7 +116,6 @@ class MysateLessWidget extends StatelessWidget {
           ),
         );
       },
-      
     );
   }
 }
