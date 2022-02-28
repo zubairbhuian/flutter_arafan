@@ -1,62 +1,75 @@
-# http package In Flutter
+# Custom Dialog in flutter
 
 ## How to use
-> <b> Installation :</b>
-> - include *http* package on **pubspec.yaml**
-> - make a stateful widget
+> Make a Separate widget otherwise *contex* not found
+
+
 
 
 ## Copy the code
 ```dart
 
-  var data = [];
-  Future getData() async {
-    var response =
-        await http.get(Uri.parse("https://jsonplaceholder.typicode.com/posts"));
-    setState(() {
-      var decode = jsonDecode(response.body);
-      data = decode;
-      print(data);
-    });
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    getData();
-  }
-
-```
-
-> - You have got all the data *"data"* in variable
-> - And you can see that in terminal
-
-> ## Why we are useing *initState()* Method
-> For *initState()* Method, *"getData()"* function call when the app has started
-
-## showing the data in your app,copy the code
-```dart
-
-ListView.builder(
-        itemCount: data == null ? 0 : data.length,
-        itemBuilder: (contex, index) {
-          return ListTile(
-            title: Text(data[index]["title"]),
-            subtitle: Text(data[index]["body"]),
-          );
+        onPressed: () {
+          showDialog(
+              context: context,
+              builder: (
+                builder,
+              ) {
+                return Dialog(
+                  shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10))),
+                  child: Stack(
+                    clipBehavior: Clip.none,
+                    alignment: Alignment.topCenter,
+                    children: [
+                      Container(
+                        height: 250,
+                        color: Colors.white,
+                        child: Padding(
+                          padding: const EdgeInsets.all(15.0),
+                          child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: const [
+                                SizedBox(
+                                  height: 30,
+                                ),
+                                Text(
+                                  "Hi Bhuian",
+                                  style: TextStyle(
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                Text(
+                                  "Here is some demo text Here is some demo text Here is some demo text Here is some demo text Here is some demo text",
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w400),
+                                )
+                              ]),
+                        ),
+                      ),
+                      Positioned(
+                          top: -50,
+                          child: CircleAvatar(
+                            radius: 50,
+                            child: ClipRRect(
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(50)),
+                              child: Image.network(
+                                  'https://scontent.fdac80-1.fna.fbcdn.net/v/t1.6435-9/123042841_945908579151890_6246602248743437967_n.jpg?_nc_cat=109&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeE_H0d-mH39OysN5a0qVKJzONjtsS8E12I42O2xLwTXYuSdhNRxWIyj59WjUrCCHZGS3F2ibpUTzwGM7PXONha2&_nc_ohc=ftMicPiWNuMAX_HanwU&tn=awbMQwkPTCWm_hVB&_nc_ht=scontent.fdac80-1.fna&oh=00_AT8_IDOeEeDcLSJv9PPtC2tsrwZ_IqGbU89_I9mGjcpU8g&oe=62429AEB'),
+                            ),
+                          ))
+                    ],
+                  ),
+                );
+              });
         },
-    ),
 
 ```
-
-
->## Important note
-> - Use async function
-> - *http.get()* can't receive any String so, pass in *Uri.parse()* method
-> - Use *await* because it's a async function
-> - Use *initState()* method so that call the function when app is running
-> - Text(**data**[index]["title"]) ,All data contain *data* variable
 
 
 ## ScreenShort
-![](imgs/Screenshot_1.png)
+![](imgs/Screenshot_10.png)
