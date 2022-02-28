@@ -30,8 +30,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter 
-  curved_navigation_bar: ^1.0.3
-  http: ^0.13.4
 
 
 
