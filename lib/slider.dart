@@ -14,6 +14,7 @@ class _SliderDemoState extends State<SliderDemo> {
      child:Column(children: [
        ElevatedButton(onPressed: (){},child:const Text('Click Me')),
        ElevatedButton(onPressed: (){},child:const Text('Hide Me')),
+       ElevatedButton(onPressed: (){},child:const Text('Hide Me again')),
      ],),
       
     );
