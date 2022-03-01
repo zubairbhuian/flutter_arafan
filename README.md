@@ -1,18 +1,20 @@
-# http in flutter
-
-## How to use
-> Make a Separate widget otherwise *contex* not found
-
-
-
+# Slider in flutter
 
 ## Copy the code
 ```dart
 
-       void () => print("Hey there")
+Slider(
+  min: 16,
+  max: 40,
+  value: _value,
+  onChanged: (value) {
+  setState(() {
+    _value = value;
+  });
+})
 
 ```
 
 
 ## ScreenShort
-![](imgs/Screenshot_1.png)
+![](imgs/Screenshot_2.png)

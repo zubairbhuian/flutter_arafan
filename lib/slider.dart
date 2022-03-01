@@ -1,23 +1,38 @@
 import 'package:flutter/material.dart';
 
 class SliderDemo extends StatefulWidget {
-  const SliderDemo({ Key? key }) : super(key: key);
+  const SliderDemo({Key? key}) : super(key: key);
 
   @override
   _SliderDemoState createState() => _SliderDemoState();
 }
 
 class _SliderDemoState extends State<SliderDemo> {
+  var _value = 20.0;
   @override
   Widget build(BuildContext context) {
     return Center(
-     child:Column(children: [
-       ElevatedButton(onPressed: (){},child:const Text('Click Me')),
-       ElevatedButton(onPressed: (){},child:const Text('Hide Me')),
-       ElevatedButton(onPressed: (){},child:const Text('Hide Me again')),
-       ElevatedButton(onPressed: (){},child:const Text('Hide Me again   gdfgfg')),
-     ],),
-      
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            height: 100,
+            child: Text(
+              "This is some demo text",
+              style: TextStyle(fontSize: _value),
+            ),
+          ),
+          Slider(
+              min: 16,
+              max: 40,
+              value: _value,
+              onChanged: (value) {
+                setState(() {
+                  _value = value;
+                });
+              })
+        ],
+      ),
     );
   }
 }
