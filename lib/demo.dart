@@ -1,3 +1,0 @@
-Function() {
-  print("object");
-}

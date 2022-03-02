@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_test_one/slider.dart';
-// import 'package:flutter_test_one/slider.dart';
 
-void main() => {runApp(MyApp())};
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -11,17 +9,22 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.purple),
+      theme: ThemeData(primarySwatch: Colors.green),
       home: SafeArea(
-        child: Scaffold(
-            appBar: AppBar(
-              title: const Text("My App"),
-              actions: [
-                ElevatedButton(onPressed: () {}, child: const Text("Log In"))
-              ],
-            ),
-            body: SliderDemo()),
-      ),
+          child: Scaffold(
+        body: Center(
+          child: RichText(
+              text: const TextSpan(
+                  text: "Hello,how are you, ",
+                  style: TextStyle(color: Colors.red),
+                  children: [
+                TextSpan(
+                    text: "Zubair?",
+                    style: TextStyle(
+                        color: Colors.green, fontWeight: FontWeight.bold)),
+              ])),
+        ),
+      )),
     );
   }
 }

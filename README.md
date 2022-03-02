@@ -1,4 +1,4 @@
-# Slider in flutter
+# RichText  in flutter
 
 ## Copy the code
 ```dart
