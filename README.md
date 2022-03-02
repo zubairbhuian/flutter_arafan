@@ -1,21 +1,59 @@
-# dropdown button  in flutter
+# Tooltip  in flutter
 
 ## Copy the code
 ```dart
 
-  DropdownButton(
-      items: const [
-        DropdownMenuItem(value: "Home", child: Text("Home")),
-        DropdownMenuItem(value: "About", child: Text("About")),
-        DropdownMenuItem(
-            value: "Contact Us", child: Text("Contact Us")),
-        DropdownMenuItem(value: "Hire Me", child: Text("Hire Me")),
-      ],
-      onChanged: (val) {
-        setState(() {
-          _selected = val.toString();
-        });
-      })
+import 'package:flutter/material.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  bool checked = true;
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+          body: Container(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Center(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  IconButton(
+                    onPressed: () {},
+                    icon: const Icon(Icons.access_alarm),
+                    tooltip: "Alarm",
+                  ),
+                  IconButton(
+                      onPressed: () {}, icon: const Icon(Icons.pedal_bike)),
+                  IconButton(
+                      onPressed: () {}, icon: const Icon(Icons.unarchive)),
+                ],
+              ),
+            ),
+            Tooltip(
+              message: "This is Tooltip",
+              child: Container(
+                height: 300,
+                color: Colors.red,
+              ),
+            )
+          ],
+        ),
+      )),
+    );
+  }
+}
 
 ```
 

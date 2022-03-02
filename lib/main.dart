@@ -16,78 +16,36 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: Column(
+          body: Container(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
+          children: [
             Center(
-              child: AnimatedCrossFade(
-                  firstChild: Container(
-                    height: 200,
-                    color: Colors.purple,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        setState(() {
-                          
-                        });
-                      },
-                      child: Text("Click Me"),
-                    ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  IconButton(
+                    onPressed: () {},
+                    icon: const Icon(Icons.access_alarm),
+                    tooltip: "Alarm",
                   ),
-                  secondChild: Center(
-                    child: Container(
-                      child: const Text(
-                        "Well to my App",
-                        style: TextStyle(fontSize: 32),
-                      ),
-                    ),
-                  ),
-                  crossFadeState: checked
-                      ? CrossFadeState.showFirst
-                      : CrossFadeState.showSecond,
-                  duration: Duration(seconds: 1)),
+                  IconButton(
+                      onPressed: () {}, icon: const Icon(Icons.pedal_bike)),
+                  IconButton(
+                      onPressed: () {}, icon: const Icon(Icons.unarchive)),
+                ],
+              ),
+            ),
+            Tooltip(
+              message: "This is Tooltip",
+              child: Container(
+                height: 300,
+                color: Colors.red,
+              ),
             )
           ],
         ),
-      ),
-    );
-  }
-}
-
-// first child
-class MyFirstChild extends StatefulWidget {
-  const MyFirstChild({Key? key}) : super(key: key);
-
-  @override
-  State<MyFirstChild> createState() => _MyFirstChildState();
-}
-
-class _MyFirstChildState extends State<MyFirstChild> {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: ElevatedButton(
-        onPressed: () {
-          setState(() {});
-        },
-        child: Text("Click Me"),
-      ),
-    );
-  }
-}
-
-// second child
-class MySecoundChild extends StatelessWidget {
-  const MySecoundChild({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        child: const Text(
-          "Well to my App",
-          style: TextStyle(fontSize: 32),
-        ),
-      ),
+      )),
     );
   }
 }
