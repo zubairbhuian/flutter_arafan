@@ -15,37 +15,33 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-          body: Container(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+      home: SafeArea(
+        child: Scaffold(
+            body: Column(
           children: [
-            Center(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.access_alarm),
-                    tooltip: "Alarm",
-                  ),
-                  IconButton(
-                      onPressed: () {}, icon: const Icon(Icons.pedal_bike)),
-                  IconButton(
-                      onPressed: () {}, icon: const Icon(Icons.unarchive)),
-                ],
-              ),
-            ),
-            Tooltip(
-              message: "This is Tooltip",
-              child: Container(
-                height: 300,
-                color: Colors.red,
-              ),
+            ExpansionTile(
+              title: Text("Zubair"),
+              subtitle: Text("Fontend Developer"),
+              // trailing: Icon(Icons.arrow_back_ios_sharp)
+              leading: Icon(Icons.person_add_alt_sharp),
+              children: [
+                Container(
+                  height: 300,
+                  color: Colors.grey,
+                  child: ListView(children: [
+                    ListTile(
+                      title: Text("Demo text"),
+                      subtitle: Text("Here is some demo text"),
+                      trailing: Icon(Icons.add),
+                      onTap: () {},
+                    )
+                  ]),
+                )
+              ],
             )
           ],
-        ),
-      )),
+        )),
+      ),
     );
   }
 }
