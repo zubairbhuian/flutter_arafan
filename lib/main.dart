@@ -1,39 +1,22 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  // DateTime dateTime;
-  // getDate()async{
-  //   DateTime data =await showDatePicker(context: context, initialDate:DataTime(DataTime.now().year), firstDate: firstDate, lastDate: lastDate)
-  // }
+  static const String _title = 'Flutter Code Sample';
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.purple),
-      home: SafeArea(
-          child: Scaffold(
-              body: Center(
-        child: Transform.rotate(
-          angle: pi / 4,
-          child: Container(
-            height: 150,
-            width: 150,
-            color: Colors.pink,
-          ),
-        ),
-      ))),
+      title: _title,
+      home: Scaffold(
+        appBar: AppBar(title: const Text(_title)),
+        body: const MyStatelessWidget(),
+      ),
     );
   }
 }
+
+
