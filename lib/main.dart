@@ -23,8 +23,8 @@ class _MyAppState extends State<MyApp> {
       home: SafeArea(
           child: Scaffold(
               body: Center(
-        child: Transform.scale(
-          scale: 1.5,
+        child: Transform.translate(
+          offset: Offset(50, 200),
           child: Container(
             height: 150,
             width: 150,
