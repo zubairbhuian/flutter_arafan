@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -10,7 +12,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  bool _value = false;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,20 +20,23 @@ class _MyAppState extends State<MyApp> {
       home: SafeArea(
           child: Scaffold(
               body: Center(
-                  child: AnimatedContainer(
-                height: _value == false ? 100 : 50,
-                width: _value == false ? 100 : 50,
-                color: Colors.red,
-                duration: const Duration(seconds: 1),
-              )),
-              floatingActionButton: FloatingActionButton(
-                onPressed: () => setState(() {
-                  _value = !_value;
-                }),
-                child: _value == false
-                    ? const Icon(Icons.remove)
-                    : const Icon(Icons.add),
-              ))),
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            Container(
+              height: 300,
+              width: 300,
+              color: Colors.red,
+            ),
+            BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+              child: Container(
+                color: Colors.white.withOpacity(.3),
+              ),
+            )
+          ],
+        ),
+      ))),
     );
   }
 }
