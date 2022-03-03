@@ -10,38 +10,29 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  bool checked = true;
+  bool _value = false;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(primarySwatch: Colors.purple),
       home: SafeArea(
-        child: Scaffold(
-            body: Column(
-          children: [
-            ExpansionTile(
-              title: Text("Zubair"),
-              subtitle: Text("Fontend Developer"),
-              // trailing: Icon(Icons.arrow_back_ios_sharp)
-              leading: Icon(Icons.person_add_alt_sharp),
-              children: [
-                Container(
-                  height: 300,
-                  color: Colors.grey,
-                  child: ListView(children: [
-                    ListTile(
-                      title: Text("Demo text"),
-                      subtitle: Text("Here is some demo text"),
-                      trailing: Icon(Icons.add),
-                      onTap: () {},
-                    )
-                  ]),
-                )
-              ],
-            )
-          ],
-        )),
-      ),
+          child: Scaffold(
+              body: Center(
+                  child: AnimatedContainer(
+                height: _value == false ? 100 : 50,
+                width: _value == false ? 100 : 50,
+                color: Colors.red,
+                duration: const Duration(seconds: 1),
+              )),
+              floatingActionButton: FloatingActionButton(
+                onPressed: () => setState(() {
+                  _value = !_value;
+                }),
+                child: _value == false
+                    ? const Icon(Icons.remove)
+                    : const Icon(Icons.add),
+              ))),
     );
   }
 }
