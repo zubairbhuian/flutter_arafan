@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -23,13 +25,13 @@ class _MyAppState extends State<MyApp> {
       home: SafeArea(
           child: Scaffold(
               body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(height: 50, child: Text("12:14 AM")),
-            ElevatedButton(onPressed: () {}, child: Icon(Icons.calendar_today)),
-            ElevatedButton(onPressed: () {}, child: Icon(Icons.timelapse)),
-          ],
+        child: Transform.rotate(
+          angle: pi / 4,
+          child: Container(
+            height: 150,
+            width: 150,
+            color: Colors.pink,
+          ),
         ),
       ))),
     );
