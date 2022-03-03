@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -25,8 +23,8 @@ class _MyAppState extends State<MyApp> {
       home: SafeArea(
           child: Scaffold(
               body: Center(
-        child: Transform.rotate(
-          angle: pi / 4,
+        child: Transform.scale(
+          scale: 1.5,
           child: Container(
             height: 150,
             width: 150,
