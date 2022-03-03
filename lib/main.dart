@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -12,6 +10,11 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  // DateTime dateTime;
+  // getDate()async{
+  //   DateTime data =await showDatePicker(context: context, initialDate:DataTime(DataTime.now().year), firstDate: firstDate, lastDate: lastDate)
+  // }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -20,20 +23,12 @@ class _MyAppState extends State<MyApp> {
       home: SafeArea(
           child: Scaffold(
               body: Center(
-        child: Stack(
-          alignment: Alignment.center,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-              height: 300,
-              width: 300,
-              color: Colors.red,
-            ),
-            BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-              child: Container(
-                color: Colors.white.withOpacity(.3),
-              ),
-            )
+            Container(height: 50, child: Text("12:14 AM")),
+            ElevatedButton(onPressed: () {}, child: Icon(Icons.calendar_today)),
+            ElevatedButton(onPressed: () {}, child: Icon(Icons.timelapse)),
           ],
         ),
       ))),
