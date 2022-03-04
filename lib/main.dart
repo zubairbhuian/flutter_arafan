@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -41,9 +42,9 @@ class _FristScreenState extends State<FristScreen> {
             ),
             OutlinedButton(
                 onPressed: () {
-                  Navigator.push(
+                  Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(
+                      CupertinoPageRoute(
                           builder: (context) => const SecondScreen()));
                 },
                 child: Text("Second Screen")),
@@ -80,9 +81,9 @@ class _SecondScreenState extends State<SecondScreen> {
             ),
             OutlinedButton(
                 onPressed: () {
-                  Navigator.push(
+                  Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(
+                      CupertinoPageRoute(
                           builder: (context) => const FristScreen()));
                 },
                 child: const Text("Frist Screen")),
