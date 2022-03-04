@@ -8,11 +8,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: "/",
-      routes: {
-        "/first": (context) => FristScreen(),
-        "/second": (context) => SecondScreen()
-      },
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.pink),
       home: const SafeArea(child: FristScreen()),
@@ -46,7 +41,10 @@ class _FristScreenState extends State<FristScreen> {
             ),
             OutlinedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, "/second");
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const SecondScreen()));
                 },
                 child: Text("Second Screen")),
           ],
@@ -82,9 +80,12 @@ class _SecondScreenState extends State<SecondScreen> {
             ),
             OutlinedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, "/first");
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const FristScreen()));
                 },
-                child: Text("Frist Screen")),
+                child: const Text("Frist Screen")),
           ],
         ),
       ),
