@@ -9,85 +9,61 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.pink),
-      home: const SafeArea(child: FristScreen()),
-    );
+        initialRoute: "/",
+        routes: {
+          "/frist": (context) => FristPage(),
+          "/second": (context) => SecondPage()
+        },
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(primarySwatch: Colors.red),
+        home: FristPage());
   }
 }
 
-class FristScreen extends StatefulWidget {
-  const FristScreen({Key? key}) : super(key: key);
+class FristPage extends StatelessWidget {
+  const FristPage({Key? key}) : super(key: key);
 
-  @override
-  State<FristScreen> createState() => _FristScreenState();
-}
-
-class _FristScreenState extends State<FristScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              color: Colors.red,
-              height: 50,
-              child: const Center(
-                  child: Text(
-                "This is Frist Page",
-                style: TextStyle(color: Colors.white, fontSize: 22),
-              )),
-            ),
-            OutlinedButton(
-                onPressed: () {
-                  Navigator.pushReplacement(
-                      context,
-                      CupertinoPageRoute(
-                          builder: (context) => const SecondScreen()));
-                },
-                child: Text("Second Screen")),
-          ],
+      body: Container(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text("This is My friset Page"),
+              OutlinedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, "/second");
+                  },
+                  child: const Text("Switch to Secondpage"))
+            ],
+          ),
         ),
       ),
     );
   }
 }
 
-class SecondScreen extends StatefulWidget {
-  const SecondScreen({Key? key}) : super(key: key);
+class SecondPage extends StatelessWidget {
+  const SecondPage({Key? key}) : super(key: key);
 
-  @override
-  State<SecondScreen> createState() => _SecondScreenState();
-}
-
-class _SecondScreenState extends State<SecondScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              color: Colors.red,
-              height: 50,
-              child: const Center(
-                  child: Text(
-                "This is Seconed Page",
-                style: TextStyle(color: Colors.white, fontSize: 22),
-              )),
-            ),
-            OutlinedButton(
-                onPressed: () {
-                  Navigator.pushReplacement(
-                      context,
-                      CupertinoPageRoute(
-                          builder: (context) => const FristScreen()));
-                },
-                child: const Text("Frist Screen")),
-          ],
+      body: Container(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text("This is My Second Page"),
+              OutlinedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, "/frist");
+                  },
+                  child: const Text("Switch to Fristpage"))
+            ],
+          ),
         ),
       ),
     );
