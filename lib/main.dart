@@ -8,9 +8,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      initialRoute: "/",
+      routes: {
+        "/first": (context) => FristScreen(),
+        "/second": (context) => SecondScreen()
+      },
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.pink),
-      home: const SafeArea(child: SecondScreen()),
+      home: const SafeArea(child: FristScreen()),
     );
   }
 }
@@ -27,7 +32,25 @@ class _FristScreenState extends State<FristScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: OutlinedButton(onPressed: () {}, child: Text("First Screen")),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              color: Colors.red,
+              height: 50,
+              child: const Center(
+                  child: Text(
+                "This is Frist Page",
+                style: TextStyle(color: Colors.white, fontSize: 22),
+              )),
+            ),
+            OutlinedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, "/second");
+                },
+                child: Text("Second Screen")),
+          ],
+        ),
       ),
     );
   }
@@ -45,7 +68,25 @@ class _SecondScreenState extends State<SecondScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: OutlinedButton(onPressed: () {}, child: Text("Second Screen")),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              color: Colors.red,
+              height: 50,
+              child: const Center(
+                  child: Text(
+                "This is Seconed Page",
+                style: TextStyle(color: Colors.white, fontSize: 22),
+              )),
+            ),
+            OutlinedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, "/first");
+                },
+                child: Text("Frist Screen")),
+          ],
+        ),
       ),
     );
   }
